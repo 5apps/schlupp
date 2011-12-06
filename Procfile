@@ -1,1 +1,1 @@
-app: bin/hubot -a irc -n 5bot
+app: bin/hubot -a irc -n fivebot
