@@ -1,1 +1,14 @@
-["redis-brain.coffee", "tweet.coffee", "shipit.coffee", "auto-tweet.coffee"]
+["auto-tweet.coffee", "dilbert.coffee", "directions.coffee", "dnsimple.coffee",
+ "eight-ball.coffee", "faceup.coffee", "gauges.coffee", "gemwhois.coffee",
+ "github-credentials.coffee", "github-issues.coffee", "google.coffee",
+ "hackernews.coffee", "haters.coffee", "isup.coffee", "karma.coffee",
+ "kittens.coffee", "likeaboss.coffee", "location-decision-maker.coffee",
+ "look-of-disapproval.coffee", "meme_generator.coffee", "newrelic.coffee",
+ "news.coffee", "oauth.coffee", "ping.coffee", "pivotal.coffee",
+ "pivotalstorylisten.coffee", "redis-brain.coffee", "remind.coffee",
+ "rimshot.coffee", "roll.coffee", "rubygems.coffee", "script.coffee",
+ "shipit.coffee", "shorten.coffee", "sosearch.coffee", "speak.coffee",
+ "talkative.coffee", "tasks.coffee", "tell.coffee", "travis.coffee",
+ "tweet-content.coffee", "tweet.coffee", "twitter.coffee", "twss.coffee",
+ "uptime.coffee", "whos-turn.coffee", "wikipedia.coffee", "wolfram.coffee",
+ "xkcd.coffee"]
