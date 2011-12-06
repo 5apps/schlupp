@@ -1,1 +1,1 @@
-app: bin/hubot -a irc -n fivebot
+app: bin/hubot -a irc -n schlupp
