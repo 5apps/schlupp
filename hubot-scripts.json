@@ -1,9 +1,8 @@
 ["dnsimple.coffee",  "faceup.coffee", "gauges.coffee", "gemwhois.coffee",
  "github-credentials.coffee", "github-issues.coffee", "isup.coffee",
  "kittens.coffee", "location-decision-maker.coffee", "meme_generator.coffee",
- "newrelic.coffee", "oauth.coffee", "pivotal.coffee",
- "pivotalstorylisten.coffee", "redis-brain.coffee", "remind.coffee",
+ "newrelic.coffee", "oauth.coffee", "redis-brain.coffee", "remind.coffee",
  "rubygems.coffee", "script.coffee", "shipit.coffee", "speak.coffee",
  "talkative.coffee", "tell.coffee", "travis.coffee", "tweet-content.coffee",
  "twitter.coffee", "twss.coffee", "uptime.coffee", "whos-turn.coffee",
- "wikipedia.coffee", "wolfram.coffee", "xkcd.coffee"]
+ "wikipedia.coffee", "xkcd.coffee"]
