@@ -1,1 +1,1 @@
-app: bin/hubot -a irc -n schlupp
+# app: bin/hubot -a irc -n schlupp
