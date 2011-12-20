@@ -4,20 +4,19 @@
 #
 # You need to set the following variables:
 #   HUBOT_TRAJECTORY_APIKEY: your Trajectory API key
-#   HUBOT_TRAJECTORY_ACCOUNT: your Trajectory Account number
-#   HUBOT_TRAJECTORY_PROJECT: the project ID
+#   HUBOT_TRAJECTORY_ACCOUNT: your Trajectory account number
 #
 module.exports = (robot) ->
-  robot.hear /apptrajectory\.com\/\w+\/\w+\/stories\/\d+/i, (msg) ->
+  robot.hear /apptrajectory\.com\/\w+\/(\w+)\/stories\/(\d+)/i, (msg) ->
     apiKey = process.env.HUBOT_TRAJECTORY_APIKEY
     account = process.env.HUBOT_TRAJECTORY_ACCOUNT
-    project = process.env.HUBOT_TRAJECTORY_PROJECT
 
-    unless apiKey && account && project
-      msg.send "Please set HUBOT_TRAJECTORY_APIKEY, HUBOT_TRAJECTORY_ACCOUNT and HUBOT_TRAJECTORY_PROJECT appropriately"
+    unless apiKey && account
+      msg.send "Please set HUBOT_TRAJECTORY_APIKEY and HUBOT_TRAJECTORY_ACCOUNT appropriately"
       return
 
-    storyId = msg.message.text.match(/\d+$/)
+    project = msg.match[1]
+    storyId = msg.match[2]
     storyURL = "https://www.apptrajectory.com/api/#{apiKey}/accounts/#{account}/projects/#{project}/stories/#{storyId}.json"
 
     msg.http(storyURL).get() (err, res, body) ->
@@ -28,8 +27,9 @@ module.exports = (robot) ->
         msg.send "Got me a code #{res.statusCode}"
         return
       story = JSON.parse body
+      article = if story.state.charAt(0) in ['a', 'e', 'i', 'o', 'u'] then 'an' else 'a'
       message = "\"#{story.title}\""
       message += " (assigned to #{story.assignee_name})" if story.assignee_name
-      message += " is a #{story.state} #{story.task_type}"
+      message += " is #{article} #{story.state} #{story.task_type.toLowerCase()}"
       msg.send message
 
