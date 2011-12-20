@@ -8,15 +8,15 @@
 #
 module.exports = (robot) ->
   robot.hear /apptrajectory\.com\/\w+\/(\w+)\/stories\/(\d+)/i, (msg) ->
-    apiKey = process.env.HUBOT_TRAJECTORY_APIKEY
+    apiKey  = process.env.HUBOT_TRAJECTORY_APIKEY
     account = process.env.HUBOT_TRAJECTORY_ACCOUNT
 
     unless apiKey && account
-      msg.send "Please set HUBOT_TRAJECTORY_APIKEY and HUBOT_TRAJECTORY_ACCOUNT appropriately"
+      msg.send "Please set HUBOT_TRAJECTORY_APIKEY and HUBOT_TRAJECTORY_ACCOUNT correctly"
       return
 
-    project = msg.match[1]
-    storyId = msg.match[2]
+    project  = msg.match[1]
+    storyId  = msg.match[2]
     storyURL = "https://www.apptrajectory.com/api/#{apiKey}/accounts/#{account}/projects/#{project}/stories/#{storyId}.json"
 
     msg.http(storyURL).get() (err, res, body) ->
@@ -32,4 +32,3 @@ module.exports = (robot) ->
       message += " (assigned to #{story.assignee_name})" if story.assignee_name
       message += " is #{article} #{story.state} #{story.task_type.toLowerCase()}"
       msg.send message
-
