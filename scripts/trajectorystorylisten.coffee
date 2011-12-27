@@ -27,8 +27,7 @@ module.exports = (robot) ->
         msg.send "Got me a code #{res.statusCode}"
         return
       story = JSON.parse body
-      article = if story.state.charAt(0) in ['a', 'e', 'i', 'o', 'u'] then 'an' else 'a'
       message = "\"#{story.title}\""
-      message += " (assigned to #{story.assignee_name})" if story.assignee_name
-      message += " is #{article} #{story.state} #{story.task_type.toLowerCase()}"
+      message += ", assigned to #{story.assignee_name}" if story.assignee_name
+      message += " (#{story.state} #{story.task_type.toLowerCase()})"
       msg.send message
