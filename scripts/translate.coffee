@@ -1,10 +1,9 @@
-# Allows Hubot to know many languages.
+# Description:
+#   Allows Hubot to know many languages.
 #
-# translate me <phrase> - Searches for a translation for the <phrase> and then
-#                         prints that bad boy out.
-#
-# translate me from <source> into <target> <phrase> - Translates <phrase> from <source> into <target>. Both <source> and <target> are optional
-#
+# Commands:
+#   hubot translate me <phrase> - Searches for a translation for the <phrase> and then prints that bad boy out.
+#   hubot translate me from <source> into <target> <phrase> - Translates <phrase> from <source> into <target>. Both <source> and <target> are optional
 
 languages =
   "af": "Afrikaans",
@@ -83,6 +82,7 @@ module.exports = (robot) ->
         uptl: "en"
         text: term
       })
+      .header('User-Agent', 'Mozilla/5.0')
       .get() (err, res, body) ->
         data   = body
         if data.length > 4 && data[0] == '['
